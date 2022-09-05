@@ -1,0 +1,29 @@
+{% extends "AppMetal/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="text-white fs-3 fw-bolder">Resultado de Busqueda Graduados</h1>
+<p class="text-white-50 mb-0">Escuela de Rock</p>
+
+{% endblock %}
+
+{% block otro_contenido %}
+<h1>Busqueda de Graduados</h1>
+
+{% if graduado %}
+
+<ul>
+    {% for Graduado in graduado %}
+        <li>{{graduado.nombre}}</li>
+        <li>{{graduado.apellido}}</li>
+    {% endfor %}
+</ul>
+
+{% else %} 
+<p>No se encontro al Graduado</p>
+
+{% endif %}
+
+{% endblock %}

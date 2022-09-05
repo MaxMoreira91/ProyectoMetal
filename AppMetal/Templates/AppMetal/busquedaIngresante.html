@@ -1,0 +1,23 @@
+{% extends "AppMetal/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="text-white fs-3 fw-bolder">Ingresante</h1>
+<p class="text-white-50 mb-0">Escuela de Rock</p>
+
+{% endblock %}
+
+{% block otro_contenido %}
+<h2> Busqueda de Ingresante </h1>
+<form action="{%  url 'busquedaIngre'  %}" method="GET"> 
+
+    <input type="text" name="nombre" id="nombre"/>
+    <input type="submit" value="Buscar"/>
+
+</form>
+
+{{mensaje}}
+
+{% endblock %}
