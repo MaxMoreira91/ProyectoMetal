@@ -12,9 +12,8 @@
 {% block otro_contenido %}
 <form action="{%  url 'bandasFormulario'  %}" method="POST"> {% csrf_token %}
 
-    <table>
-        {{ formulario.as_table }}
-    </table>
+    <p>Nombre: <input type="text" name="Nombre"></p>
+    <p>Comision: <input type="number" name="Comision"></p>
     <input type="submit" value="Enviar formulario"/>
 
 </form>

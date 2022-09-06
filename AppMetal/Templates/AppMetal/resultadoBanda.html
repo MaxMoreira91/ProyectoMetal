@@ -12,17 +12,17 @@
 {% block otro_contenido %}
 <h1>Busqueda de Banda</h1>
 
-{% if ingresante %}
+{% if banda %}
 
 <ul>
-    {% for Banda in ingresante %}
-        <li>{{banda.nombre}}</li>
-        <li>{{banda.numero}}</li>
+    {% for Banda in banda %}
+        <li>{{Banda.nombre}}</li>
+        <li>{{Banda.comision}}</li>
     {% endfor %}
 </ul>
 
 {% else %} 
-<p>No se encontro a la banda</p>
+<p>No se encontro la Banda.</p>
 
 {% endif %}
 

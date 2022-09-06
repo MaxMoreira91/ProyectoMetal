@@ -16,13 +16,13 @@
 
 <ul>
     {% for Graduado in graduado %}
-        <li>{{graduado.nombre}}</li>
-        <li>{{graduado.apellido}}</li>
+        <li>{{Graduado.nombre}}</li>
+        <li>{{Graduado.apellido}}</li>
     {% endfor %}
 </ul>
 
 {% else %} 
-<p>No se encontro al Graduado</p>
+<p>No se encontro al Graduado.</p>
 
 {% endif %}
 

@@ -54,20 +54,13 @@ def graduadosFormulario(request):
 
 def bandasFormulario(request):
     if request.method=="POST":
-        form= BandasForm(request.POST)
-        print("-----------------")
-        print(form)
-        print("-----------------")
-        if form.is_valid():
-            informacion=form.cleaned_data
-            nombre=informacion["nombre"]
-            comision=informacion["comision"]
-            banda=Bandas(nombre=nombre, comision=comision)
-            banda.save()
-            return render (request, "AppMetal/inicio.html", {"mensaje":"Creado"})
-    else:
-        form=BandasForm
-        return render (request, "AppMetal/bandasFormulario.html", {"formulario":form})
+        nombre=request.POST["Nombre"]
+        comision=request.POST["Comision"]
+        banda=Bandas(nombre=nombre, comision=comision)
+        banda.save()
+        return render (request, "AppMetal/inicio.html", {"mensaje":"Creado"})
+    
+    return render (request, "AppMetal/bandasFormulario.html")
 
 
 
@@ -80,7 +73,7 @@ def busquedaIngre(request):
        ingresante=Ingresantes.objects.filter(nombre=nombre)
        return render (request, "AppMetal/resultadoIngresante.html", {"ingresante":ingresante})
     else:
-        return render(request, "AppMetal/busquedaIngresante.html", {"mensaje":"Ingrese una nombre valido"})
+       return render(request, "AppMetal/busquedaIngresante.html", {"mensaje":"Ingrese una nombre valido"})
     
 
 
@@ -88,12 +81,12 @@ def busquedaGraduado(request):
     return render(request, "Appmetal/busquedaGraduados.html")
 
 def busquedaGra(request):
-    if request.GET["graduado"]:
-       nombre=request.GET["graduado"]
+    if request.GET["nombre"]:
+       nombre=request.GET["nombre"]
        graduado=Graduados.objects.filter(nombre=nombre)
-       return render (request, "AppMetal/resultadoGraduado.html", {"graduado":graduado})
+       return render (request, "AppMetal/resultadoGraduados.html", {"graduado":graduado})
     else:
-        return render(request, "AppMetal/busquedaGraduado.html", {"mensaje":"Ingrese una nombre valido"})
+       return render(request, "AppMetal/busquedaGraduados.html", {"mensaje":"Ingrese una nombre valido"})
     
     
 
@@ -106,6 +99,6 @@ def busquedaBan(request):
        curso=Bandas.objects.filter(comision=comision)
        return render (request, "AppMetal/resultadoBanda.html", {"cursos":curso})
     else:
-        return render(request, "AppMetal/busquedaBanda.html", {"mensaje":"Ingrese una nombre valido"})
+       return render(request, "AppMetal/busquedaBanda.html", {"mensaje":"Ingrese una nombre valido"})
     
     
